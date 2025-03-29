@@ -1,6 +1,7 @@
 export default function About() {
     return(
-        <div className="flex flex-col">
+        <div className="flex items-baseline gap-6">
+            <div className="flex flex-col w-fit mr-6">
             <div className="my-4">
                 <h2 className="text-primary text-3xl font-mainBold font-semibold leading-relaxed capitalize mb-4">apa itu bunga gampang?</h2>
                 <div>
@@ -22,6 +23,7 @@ export default function About() {
                     </p>
                 </div>
             </div>
+        </div>
         </div>
     );
 }
