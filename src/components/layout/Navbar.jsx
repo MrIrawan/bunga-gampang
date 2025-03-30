@@ -32,6 +32,9 @@ export default function Navbar() {
                     </div>
                 </div>
             </nav>
+            <div className="w-full p-1 bg-primary">
+                <p className="font-mainBold text-center font-medium text-base text-text leading-relaxed">Siap bantu anda semua dengan prediksi akurat dan hasil yang cepat!</p>
+            </div>
         </header>
     );
 }
