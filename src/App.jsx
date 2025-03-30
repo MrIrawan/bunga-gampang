@@ -2,7 +2,6 @@ import Section from "./components/Section"
 import Hero from "./components/Hero"
 import About from "./components/About"
 import Features from "./components/Features"
-import BentoGridView from "./components/layout/BentoGridView"
 
 function App() {
 
