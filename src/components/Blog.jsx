@@ -2,7 +2,7 @@ import Card from "./ui/Card"
 
 export default function Blog() {
     return(
-        <div className="w-full grid grid-cols-4 gap-[24px]">
+        <div className="w-full grid grid-cols-1 gap-[24px] md:grid-cols-2 lg:grid-cols-4">
             <Card classname='shadow-xl border rounded-lg'>
                 <Card.Header>
                     <img src="https://placehold.co/500x300" alt="photo 1" className="w-full h-full object-cover"/>

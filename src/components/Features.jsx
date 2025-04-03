@@ -25,7 +25,7 @@ export default function Features() {
         <div className="flex flex-col items-center gap-10">
             <h2 className="text-3xl font-mainBold font-semibold text-primary capitalize leading-relaxed">kenapa harus bunga gampang?</h2>
             <div className="w-full flex justify-between gap-8">
-                <div className="w-full py-5 grid grid-cols-3 gap-[24px]">
+                <div className="w-full py-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[24px]">
                     <FeaturesCard data={firstFeatures} />
                 </div>
             </div>
