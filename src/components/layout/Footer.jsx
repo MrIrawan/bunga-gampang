@@ -8,7 +8,10 @@ export default function Footer() {
             <div className="container w-full mx-auto">
                 <div className="w-full flex">
                     <article className="p-5 w-full">
-                        <h2 className="text-3xl font-mainBold text-primary leading-tight w-fit mx-auto">Bunga <span className="block">Gampang.</span></h2>
+                        <div className="w-fit mx-auto">
+                            <h2 className="text-3xl font-mainBold text-primary leading-tight w-fit">Bunga <span className="block">Gampang.</span></h2>
+                            <p className="font-main text-base max-w-xs mt-3">web application that helps people to calculate their money with interest.</p>
+                        </div>
                     </article>
                     <article className="p-5 w-full">
                         <div className="w-fit mx-auto">
@@ -16,19 +19,27 @@ export default function Footer() {
                             <div className="w-full mt-3">
                                 <ul className="flex gap-10 items-center">
                                     <div className="flex flex-col gap-2">
-                                        <li className="text-black font-main text-base leading-relaxed">
+                                        <li className="text-black font-main text-base leading-relaxed hover-list">
                                             <a href="#">Beranda</a>
                                         </li>
-                                        <li className="text-black font-main text-base leading-relaxed">
+                                        <li className="text-black font-main text-base leading-relaxed hover-list">
                                             <a href="#">Tentang</a>
                                         </li>
                                     </div>
                                     <div className="flex flex-col gap-2">
-                                        <li className="text-black font-main text-base leading-relaxed">
+                                        <li className="text-black font-main text-base leading-relaxed hover-list">
                                             <a href="#">Mulai Hitung</a>
                                         </li>
-                                        <li className="text-black font-main text-base leading-relaxed">
+                                        <li className="text-black font-main text-base leading-relaxed hover-list">
                                             <a href="#">Blog</a>
+                                        </li>
+                                    </div>
+                                    <div className="flex flex-col gap-2">
+                                        <li className="text-black font-main text-base leading-relaxed hover-list">
+                                            <a href="#">layanan kami</a>
+                                        </li>
+                                        <li className="text-black font-main text-base leading-relaxed hover-list">
+                                            <a href="#">kontak kami</a>
                                         </li>
                                     </div>
                                 </ul>
