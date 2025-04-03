@@ -16,3 +16,23 @@
     font-family: main-light;
     src: url('/fonts/Montserrat-Light.ttf') format('truetype');
 }
+
+.hover-list {
+    position: relative;
+    width: fit-content;
+}
+
+.hover-list::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    background-color: black;
+    transition: width .2s;
+}
+
+.hover-list:hover::after {
+    width: 100%;
+}
