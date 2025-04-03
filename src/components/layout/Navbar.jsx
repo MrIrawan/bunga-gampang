@@ -11,16 +11,16 @@ export default function Navbar() {
                     </div>
                     <div className="w-fit">
                         <ul className="flex items-center gap-5">
-                            <li className="font-main text-base leading-relaxed transition-all duration-300 ease-in-out">
+                            <li className="font-main text-base leading-relaxed hover-list">
                                 <a href="#">Beranda</a>
                             </li>
-                            <li className="font-main text-base leading-relaxed transition-all duration-300 ease-in-out">
+                            <li className="font-main text-base leading-relaxed hover-list">
                                 <a href="#">Tentang</a>
                             </li>
-                            <li className="font-main text-base leading-relaxed transition-all duration-300 ease-in-out">
+                            <li className="font-main text-base leading-relaxed hover-list">
                                 <a href="#">Mulai Hitung</a>
                             </li>
-                            <li className="font-main text-base leading-relaxed transition-all duration-300 ease-in-out">
+                            <li className="font-main text-base leading-relaxed hover-list">
                                 <a href="#">Blog</a>
                             </li>
                         </ul>
