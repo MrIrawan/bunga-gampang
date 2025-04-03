@@ -1,6 +1,6 @@
 export default function Hero() {
     return(
-        <div className="flex items-center justify-center md:flex-wrap md:gap-7 lg:flex-nowrap">
+        <div className="flex items-center justify-center flex-wrap gap-7 lg:flex-nowrap">
             <div className="w-1/2 flex flex-col gap-3 md:w-full md:items-center lg:items-start lg:w-1/2">
                 <p className="text-sm font-main font-semibold text-secondary capitalize">hitung bunga jadi lebih cepat pake bunga gampang!</p>
                 <h2 className="font-mainBold text-3xl font-bold capitalize leading-tight max-w-xl md:text-center lg:text-left lg:text-5xl lg:max-w-2xl lg:leading-tight">
@@ -17,7 +17,7 @@ export default function Hero() {
                     </a>
                 </div>
             </div>
-            <div className="w-1/2 flex justify-end md:w-full md:items-center lg:items-start lg:w-1/2">
+            <div className="w-full flex justify-center lg:w-1/2 lg:justify-end">
                 <img src="https://placehold.co/500x500" alt="" className="bg-red-500"/>
             </div>
         </div>

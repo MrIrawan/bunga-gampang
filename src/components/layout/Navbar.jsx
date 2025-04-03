@@ -5,11 +5,11 @@ export default function Navbar() {
     return(
         <header className="w-full shadow-xl">
             <nav className="w-4/5 mx-auto flex items-center justify-between">
-                <div className="p-5 w-1/2 flex items-center justify-start gap-10">
+                <div className="p-5 w-full flex items-center justify-start gap-10 lg:w-1/2">
                     <div className="w-fit">
                         <h2 className="text-xl font-mainBold text-primary leading-tight">Bunga <span className="block">Gampang.</span></h2>
                     </div>
-                    <div className="w-fit">
+                    <div className="w-fit mx-auto lg:mx-0">
                         <ul className="flex items-center gap-5">
                             <li className="font-main text-base leading-relaxed hover-list">
                                 <a href="#">Beranda</a>
@@ -26,7 +26,7 @@ export default function Navbar() {
                         </ul>
                     </div>
                 </div>
-                <div className="p-5 w-1/2 flex items-center justify-end">
+                <div className="p-5 w-fit flex items-center justify-end lg:w-1/2">
                     <div className="w-fit cursor-pointer">
                         <FontAwesomeIcon icon={faUser} className="text-2xl"/>
                     </div>
