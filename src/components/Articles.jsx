@@ -2,7 +2,7 @@ import Card from "./ui/Card"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 
-export default function Blog() {
+export default function Articles() {
     return(
         <>
         <div className="w-full mb-10">

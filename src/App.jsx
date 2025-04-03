@@ -2,7 +2,7 @@ import Section from "./components/Section"
 import Hero from "./components/Hero"
 import About from "./components/About"
 import Features from "./components/Features"
-import Blog from "./components/Blog"
+import Articles from "./components/Articles"
 
 function App() {
 
@@ -19,7 +19,7 @@ function App() {
           <Features />
         </Section>
         <Section>
-          <Blog />
+          <Articles />
         </Section>
       </main>
     </>
