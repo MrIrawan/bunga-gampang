@@ -1,7 +1,18 @@
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { dataRotes } from "/public/data.js";
 
 export default function Count() {
+    const path = window.location.pathname;
+    const [ defaultPath, setDefaultPath ] = useState(dataRotes[0].path);
+
+    if (path !== defaultPath) {
+        console.log('not found routes');
+        
+    }
+    
+
     return(
         <>
             <div className="w-full h-screen flex">
