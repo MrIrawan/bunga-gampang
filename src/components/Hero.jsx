@@ -8,12 +8,12 @@ export default function Hero() {
                 </h2>
                 <h3 className="text-lg font-main font-semibold text-secondary max-w-lg leading-tight md:text-center lg:text-left">kami, bunga gampang siap membantu anda dengan perhitungan yang cepat dan akurat.</h3>
                 <div className="flex items-center gap-3 mt-5">
-                    <a href="#">
+                    <a href="/count">
                         <button className="px-3 py-2 bg-primary rounded-lg text-text capitalize font-mainLight font-semibold text-sm leading-relaxed transition-colors duration-300 ease-out hover:bg-primary/90">mulai hitung</button>
                     </a>
                     <hr className="border border-black h-5"/>
-                    <a href="#">
-                        <button className="px-3 py-2 bg-secondary rounded-lg text-text capitalize font-mainLight font-semibold text-sm leading-relaxed transition-colors duration-300 ease-out hover:bg-secondary/90">pilih metode perhitungan</button>
+                    <a href="/blog">
+                        <button className="px-3 py-2 bg-secondary rounded-lg text-text capitalize font-mainLight font-semibold text-sm leading-relaxed transition-colors duration-300 ease-out hover:bg-secondary/90">lihat artikel dari kami</button>
                     </a>
                 </div>
             </div>

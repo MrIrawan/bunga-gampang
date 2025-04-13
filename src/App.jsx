@@ -3,12 +3,13 @@ import Hero from "./components/Hero"
 import About from "./components/About"
 import Features from "./components/Features"
 import Articles from "./components/Articles"
+import "./index.css"
 
 function App() {
 
   return (
     <>
-      <main>
+      <main className="bg-pattern">
         <Section sectionId='home'>
           <Hero />
         </Section>
