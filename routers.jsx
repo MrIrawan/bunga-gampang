@@ -1,6 +1,7 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import App from "./src/App";
 import Count from "./src/pages/Count";
+import Blog from "./src/pages/Blog";
 import NotFound from "./src/pages/404";
 
 export const routers = createBrowserRouter([
@@ -10,7 +11,7 @@ export const routers = createBrowserRouter([
     },
     {
         path: '/blog',
-        element: <h2>blog</h2>
+        element: <Blog />
     },
     {
         path: '/count',
