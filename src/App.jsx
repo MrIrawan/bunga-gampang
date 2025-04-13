@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <main className="bg-pattern">
+      <main>
         <Section sectionId='home'>
           <Hero />
         </Section>
