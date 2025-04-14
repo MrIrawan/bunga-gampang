@@ -5,7 +5,9 @@ export default function Blog() {
     return (
         <section className='w-full pt-3 pb-3'>
             <div className="container w-full mx-auto">
-                <CategoriesBar data={categories}/>
+                <div className='w-full flex flex-col gap-6'>
+                    <CategoriesBar data={categories} />
+                </div>
             </div>
         </section>
     )

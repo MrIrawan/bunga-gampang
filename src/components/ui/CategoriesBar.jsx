@@ -13,7 +13,6 @@ export default function CategoriesBar({ data }) {
 
     return (
         <>
-            <div className="w-full flex flex-col gap-6">
                 <div className='w-full p-3'>
                     <h2 className='text-2xl font-mainBold mx-1'>browse by categories</h2>
                     <div className='w-full mt-4 mb-6 flex flex-wrap lg:w-1/2'>
@@ -33,7 +32,6 @@ export default function CategoriesBar({ data }) {
                     </div>
                     <hr className='border border-secondary'/>
                 </div>
-            </div>
         </>
     )
 }

@@ -10,4 +10,7 @@ export const categories = [
     { name: 'market sight', path: 'market-sight' },
     { name: 'blockchain', path: 'blockchain' },
     { name: 'NFT', path: 'nft' },
+    { name: 'hobby', path: 'hobby' },
+    { name: 'fashion', path: 'fashion' },
+    { name: 'sport', path: 'sport' },
 ]
