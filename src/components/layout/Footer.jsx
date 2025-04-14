@@ -51,8 +51,8 @@ export default function Footer() {
                             <h3 className="text-xl font-mainBold text-primary leading-relaxed">Connect</h3>
                             <div className="w-full mt-3">
                                 <ul className="flex flex-col gap-4">
-                                    <li>
-                                        <div className="flex items-center gap-3">
+                                    <li className="cursor-pointer group">
+                                        <div className="flex items-center gap-3 w-fit transition-all duration-200 ease-in-out group-hover:translate-x-3">
                                             <FontAwesomeIcon icon={faInstagram} className="text-xl"/>
                                             <div className="flex flex-col gap-1">
                                                 <h4 className="font-mainBold text-sm leading-relaxed">@canttguardrell</h4>
@@ -60,8 +60,8 @@ export default function Footer() {
                                             </div>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div className="flex items-center gap-3">
+                                    <li className="cursor-pointer group">
+                                        <div className="flex items-center gap-3 w-fit transition-all duration-200 ease-in-out group-hover:translate-x-3">
                                             <FontAwesomeIcon icon={faGithub} className="text-xl"/>
                                             <div className="flex flex-col gap-1">
                                                 <h4 className="font-mainBold text-sm leading-relaxed">MrIrawan</h4>
@@ -69,8 +69,8 @@ export default function Footer() {
                                             </div>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div className="flex items-center gap-3">
+                                    <li className="cursor-pointer group">
+                                        <div className="flex items-center gap-3 w-fit transition-all duration-200 ease-in-out group-hover:translate-x-3">
                                             <FontAwesomeIcon icon={faLinkedinIn} className="text-xl"/>
                                             <div className="flex flex-col gap-1">
                                                 <h4 className="font-mainBold text-sm leading-relaxed">Farrel Irawan</h4>
@@ -78,8 +78,8 @@ export default function Footer() {
                                             </div>
                                         </div>
                                     </li>
-                                    <li>
-                                        <div className="flex items-center gap-3">
+                                    <li className="cursor-pointer group">
+                                        <div className="flex items-center gap-3 w-fit transition-all duration-200 ease-in-out group-hover:translate-x-3">
                                             <FontAwesomeIcon icon={faEnvelope} className="text-xl"/>
                                             <div className="flex flex-col gap-1">
                                                 <h4 className="font-mainBold text-sm leading-relaxed">irawanssfarrel@gmail.com</h4>
