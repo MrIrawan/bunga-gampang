@@ -6,4 +6,11 @@ export const categories = [
     { name: 'invesment', path: 'invesment' },
     { name: 'crypto', path: 'crypto' },
     { name: 'fund', path: 'fund' },
+    { name: 'insight', path: 'insight' },
+    { name: 'market sight', path: 'market-sight' },
+    { name: 'blockchain', path: 'blockchain' },
+    { name: 'NFT', path: 'nft' },
+    { name: 'hobby', path: 'hobby' },
+    { name: 'fashion', path: 'fashion' },
+    { name: 'sport', path: 'sport' },
 ]
