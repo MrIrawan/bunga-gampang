@@ -21,7 +21,21 @@ export default function ArticlesCard({ variant = 'default' }) {
                         <p className="text-sm font-main text-secondary font-semibold lg:max-w-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam labore velit nobis! Fugiat cum eius, doloribus mollitia obcaecati at reprehenderit.</p>
                     </div>
                     <div className="w-full lg:max-w-md">
-                        
+                        <span 
+                            className={`border border-secondary/60 py-1 px-5 mx-1 my-1 rounded-full text-base font-main cursor-pointer transition-all duration-200 ease-in-out`}
+                        >
+                            financial
+                        </span>
+                        <span 
+                            className={`border border-secondary/60 py-1 px-5 mx-1 my-1 rounded-full text-base font-main cursor-pointer transition-all duration-200 ease-in-out`}
+                        >
+                            market sight
+                        </span>
+                        <span 
+                            className={`border border-secondary/60 py-1 px-5 mx-1 my-1 rounded-full text-base font-main cursor-pointer transition-all duration-200 ease-in-out`}
+                        >
+                            blockchain
+                        </span>
                     </div>
                 </article>
             </div>
