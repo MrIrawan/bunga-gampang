@@ -1,13 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-export default function ArticlesCard({ variant = 'default' }) {
+export default function ArticlesCard({ variant = 'default', data }) {
     return (
         <>
-            <div className="shadow-lg border w-full h-[400px] flex lg:w-full">
+            <div key={data.id} className="shadow-lg border w-full h-[400px] flex lg:w-full">
                 {/* article image */}
                 <article className="w-3/5 h-full overflow-hidden lg:w-4/5">
-                    <img src="/images/saham.jpg" alt="" className="w-full h-full object-cover"/>
+                    <img src={data.image_url} alt={`image-${data.id}`} className="w-full h-full object-cover"/>
                 </article>
                 {/* article content */}
                 <article className="w-full py-3 px-6 flex flex-col">
@@ -17,35 +17,32 @@ export default function ArticlesCard({ variant = 'default' }) {
                             <div className="w-8 h-8 bg-red-100 rounded-full overflow-hidden">
                                 <img src="https://placehold.co/600x400" alt="" className="w-full h-full object-cover"/>
                             </div>
-                            <p className="text-sm font-main font-semibold text-secondary">Posted By Admin</p>
+                            <p className="text-sm font-main font-semibold text-secondary">Posted By { data.posted }</p>
                         </div>
                         <span className="w-2 h-2 bg-primary rounded-full"></span>
-                        <p className="text-sm font-main text-secondary font-semibold">On 13 April 2025</p>
+                        <p className="text-sm font-main text-secondary font-semibold">On { new Date(data.created_at).toLocaleString("id-ID", {day: "numeric", year: "numeric", month: "long"}) }</p>
                     </div>
 
                     {/* title and description */}
                     <div className="w-full flex flex-col mb-5">
-                        <h2 className="text-2xl font-mainBold mb-4 leading-tight">Bagaimana Cara Memulai saham untuk pemula?</h2>
-                        <p className="text-sm font-main text-secondary font-semibold lg:max-w-md">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam labore velit nobis! Fugiat cum eius, doloribus mollitia obcaecati at reprehenderit.</p>
+                        <h2 className="text-2xl font-mainBold mb-4 leading-tight">{ data.title }</h2>
+                        <p className="text-sm font-main text-secondary font-semibold lg:max-w-md">{ data.description }</p>
                     </div>
 
                     {/* for categories tags */}
                     <div className="w-full lg:max-w-md">
-                        <span 
-                            className={`border border-secondary/60 py-1 px-5 mx-1 my-1 rounded-full text-base font-main cursor-pointer transition-all duration-200 ease-in-out`}
-                        >
-                            financial
-                        </span>
-                        <span 
-                            className={`border border-secondary/60 py-1 px-5 mx-1 my-1 rounded-full text-base font-main cursor-pointer transition-all duration-200 ease-in-out`}
-                        >
-                            market sight
-                        </span>
-                        <span 
-                            className={`border border-secondary/60 py-1 px-5 mx-1 my-1 rounded-full text-base font-main cursor-pointer transition-all duration-200 ease-in-out`}
-                        >
-                            blockchain
-                        </span>
+                        { Array.isArray(data.category.tags) ? data.category.tags.map((article, key) => (
+                            <span 
+                                key={key}
+                                className={`border border-secondary/60 py-1 px-5 mx-1 my-1 rounded-full text-base font-main cursor-pointer transition-all duration-200 ease-in-out`}
+                            >
+                                { article }
+                            </span>
+                        )) : <span 
+                                className={`border border-secondary/60 py-1 px-5 mx-1 my-1 rounded-full text-base font-main cursor-pointer transition-all duration-200 ease-in-out`}
+                            >
+                                { data.category.tags }
+                            </span> }
                     </div>
 
                     {/* read more button (footer) */}
