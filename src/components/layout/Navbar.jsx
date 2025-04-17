@@ -4,7 +4,7 @@ import { faUser, faBars } from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbar() {
 
-    const [isAuthorized, setisAuthorized] = useState(false);
+    const [isAuthorized, setisAuthorized] = useState(true);
 
     return(
         <header className="w-full shadow-xl">
@@ -32,11 +32,16 @@ export default function Navbar() {
                 </div>
                 <div className="p-5 w-fit flex items-center justify-end lg:w-1/2">
                     <div className={`w-fit cursor-pointer ${isAuthorized ? "" : "flex items-center gap-3"}`}>
-                        { isAuthorized ? <FontAwesomeIcon icon={faUser} className="text-2xl"/> : 
-                            <>
-                                <a href="/masuk" className="font-main bg-primary text-text w-fit px-3 py-1.5 border border-secondary/50 transition-all duration-300 ease-in-out hover:bg-primary/95">Masuk</a>
-                                <a href="/daftar" className="font-main bg-secondary text-text w-fit px-3 py-1.5 border border-secondary/50 transition-all duration-300 ease-in-out hover:bg-secondary/95">Daftar</a>
-                            </>
+                        { isAuthorized ? 
+                        
+                        <div className="w-12 h-12 rounded-full overflow-hidden">
+                            <img src="https://placehold.co/600x400" alt="profile-user" className="w-full h-full object-cover"/>
+                        </div>
+                        :
+                        <>
+                            <a href="/masuk" className="font-main bg-primary text-text w-fit px-3 py-1.5 border border-secondary/50 transition-all duration-300 ease-in-out hover:bg-primary/95">Masuk</a>
+                            <a href="/daftar" className="font-main bg-secondary text-text w-fit px-3 py-1.5 border border-secondary/50 transition-all duration-300 ease-in-out hover:bg-secondary/95">Daftar</a>
+                        </>
                         }
                     </div>
                 </div>

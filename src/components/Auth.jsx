@@ -1,3 +1,6 @@
+import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom";
+
 export default function Auth({ variant }) {
 
     return (
@@ -13,6 +16,15 @@ export default function Auth({ variant }) {
 // register component
 
 function Register() {
+
+    const [isRegistered, setIsRegistered] = useState(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (isRegistered === true) {
+            navigate("/");
+        }
+    }, [])
 
     return (
         <>
