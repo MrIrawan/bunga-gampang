@@ -18,7 +18,9 @@ export default function Hero() {
                 </div>
             </div>
             <div className="w-full flex justify-center lg:w-1/2 lg:justify-end">
-                <img src="https://placehold.co/500x500" alt="" className="bg-red-500"/>
+                <span>
+                    <img src="/images/hero_section.svg" alt="" />
+                </span>
             </div>
         </div>
     );
