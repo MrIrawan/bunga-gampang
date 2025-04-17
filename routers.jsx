@@ -22,6 +22,14 @@ export const routers = createBrowserRouter([
         element: <Count />
     },
     {
+        path: '/masuk',
+        element: <h2>login</h2>
+    },
+    {
+        path: '/daftar',
+        element: <h2>register</h2>
+    },
+    {
         path: '*',
         element: <NotFound />
     },

@@ -34,7 +34,7 @@ export default function Navbar() {
                     <div className={`w-fit cursor-pointer ${isAuthorized ? "" : "flex items-center gap-3"}`}>
                         { isAuthorized ? <FontAwesomeIcon icon={faUser} className="text-2xl"/> : 
                             <>
-                                <a href="/daftar" className="font-main bg-primary text-text w-fit px-3 py-1.5 border border-secondary/50 transition-all duration-300 ease-in-out hover:bg-primary/95">Masuk</a>
+                                <a href="/masuk" className="font-main bg-primary text-text w-fit px-3 py-1.5 border border-secondary/50 transition-all duration-300 ease-in-out hover:bg-primary/95">Masuk</a>
                                 <a href="/daftar" className="font-main bg-secondary text-text w-fit px-3 py-1.5 border border-secondary/50 transition-all duration-300 ease-in-out hover:bg-secondary/95">Daftar</a>
                             </>
                         }
