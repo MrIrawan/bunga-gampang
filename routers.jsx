@@ -3,6 +3,7 @@ import App from "./src/App";
 import Count from "./src/pages/Count";
 import Blog from "./src/pages/Blog";
 import NotFound from "./src/pages/404";
+import Auth from "./src/components/Auth"
 
 export const routers = createBrowserRouter([
     {
@@ -23,11 +24,11 @@ export const routers = createBrowserRouter([
     },
     {
         path: '/masuk',
-        element: <h2>login</h2>
+        element: <Auth variant="login"/>
     },
     {
         path: '/daftar',
-        element: <h2>register</h2>
+        element: <Auth variant="register"/>
     },
     {
         path: '*',
