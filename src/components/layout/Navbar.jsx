@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faBars } from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbar() {
+
+    const [isAuthorized, setisAuthorized] = useState(false);
+
     return(
         <header className="w-full shadow-xl">
             <nav className="w-4/5 mx-auto flex items-center justify-between">
@@ -27,8 +31,13 @@ export default function Navbar() {
                     </div>
                 </div>
                 <div className="p-5 w-fit flex items-center justify-end lg:w-1/2">
-                    <div className="w-fit cursor-pointer">
-                        <FontAwesomeIcon icon={faUser} className="text-2xl"/>
+                    <div className={`w-fit cursor-pointer ${isAuthorized ? "" : "flex items-center gap-3"}`}>
+                        { isAuthorized ? <FontAwesomeIcon icon={faUser} className="text-2xl"/> : 
+                            <>
+                                <a href="/daftar" className="font-main bg-primary text-text w-fit px-3 py-1.5 border border-secondary/50 transition-all duration-300 ease-in-out hover:bg-primary/95">Masuk</a>
+                                <a href="/daftar" className="font-main bg-secondary text-text w-fit px-3 py-1.5 border border-secondary/50 transition-all duration-300 ease-in-out hover:bg-secondary/95">Daftar</a>
+                            </>
+                        }
                     </div>
                 </div>
             </nav>
