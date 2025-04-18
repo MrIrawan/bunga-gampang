@@ -17,14 +17,7 @@ export default function Auth({ variant }) {
 
 function Register() {
 
-    const [isRegistered, setIsRegistered] = useState(false);
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        if (isRegistered === true) {
-            navigate("/");
-        }
-    }, [])
+    
 
     return (
         <>
