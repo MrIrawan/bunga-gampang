@@ -4,7 +4,7 @@ import { faUser, faBars } from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbar() {
 
-    const [isAuthorized, setisAuthorized] = useState(true);
+    const [isAuthorized, setisAuthorized] = useState(false);
 
     return(
         <header className="w-full shadow-xl">
