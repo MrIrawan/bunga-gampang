@@ -102,6 +102,35 @@ function Register() {
 // login component
 
 function Login() {
+
+    const [ formLogin, setFormLogin ] = useState({
+        email: "",
+        password: ""
+    });
+
+    const handleSubmitLogin = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await fetch("http://localhost:8800/api/masuk", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(formLogin)
+            });
+
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+
+            const responseData = await response.json();
+            
+        } catch (error) {
+            console.error(`error message: ${error}`);
+        }
+    }
+
     return (
         <>
             <div className="w-1/2 bg-primary h-full p-3"></div>
@@ -109,14 +138,26 @@ function Login() {
                 <div className="w-full flex flex-col items-center">
                     <h2 className="text-2xl font-mainBold text-black leading-tight lg:text-3xl">Selamat datang kembali di <span className="block text-primary">Bunga Gampang.</span></h2>
                     <div className="w-full h-[400px] lg:w-4/5 lg:mx-auto">
-                        <form action="" className="w-full h-full flex flex-col justify-center">
+                        <form onSubmit={(e) => handleSubmitLogin(e)} className="w-full h-full flex flex-col justify-center">
                             <div className="w-full flex flex-col gap-1 mb-3 mt-auto">
                                 <label htmlFor="email" className="font-mainBold text-sm">Email Anda</label>
-                                <input type="email" name="email" id="email" className="border-b py-2 focus:outline-none focus:border-b-primary font-main text-base"/>
+                                <input 
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                    className="border-b py-2 focus:outline-none focus:border-b-primary font-main text-base"
+                                    onChange={(e) => setFormLogin({ ...formLogin, email: e.target.value })}
+                                />
                             </div>
                             <div className="w-full flex flex-col gap-1 mt-3 mb-auto">
                                 <label htmlFor="password" className="font-mainBold text-sm">Password Email</label>
-                                <input type="password" name="password" id="password" className="border-b py-2 focus:outline-none focus:border-b-primary font-main text-base"/>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    id="password"
+                                    className="border-b py-2 focus:outline-none focus:border-b-primary font-main text-base"
+                                    onChange={(e) => setFormLogin({ ...formLogin, password: e.target.value })}
+                                />
                             </div>
                             <div className="w-full">
                                 <button type="submit" className="font-main border w-full mb-6 py-2 bg-primary text-text">Masuk Sekarang</button>
