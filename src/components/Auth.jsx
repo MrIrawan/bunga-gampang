@@ -26,7 +26,6 @@ function Register() {
 
     const handleSubmitRegister = async (e) => {
         e.preventDefault();
-        console.log(formData);
         
         try {
             const response = await fetch("http://localhost:8800/api/daftar", {
@@ -58,32 +57,32 @@ function Register() {
                     <div className="w-full h-[400px] lg:w-4/5 lg:mx-auto">
                         <form onSubmit={(e) => handleSubmitRegister(e)} className="w-full h-full flex flex-col">
                             <div className="w-full flex flex-col gap-1 my-3">
-                                <label htmlFor="name" className="font-mainBold text-sm">Nama Lengkap</label>
+                                <label htmlFor="name" className="font-mainBold text-sm">Nama Lengkap <span className="text-red-600 text-sm">*</span></label>
                                 <input 
                                     type="text" 
                                     name="name" 
                                     id="name" 
-                                    className="border-b py-2 focus:outline-none focus:border-b-primary font-main text-base"
+                                    className={`border-b py-2 focus:outline-none focus:border-b-primary font-main text-base`}
                                     onChange={(e) => setFormData({ ...formData, username: e.target.value })}
                                 />
                             </div>
                             <div className="w-full flex flex-col gap-1 my-3">
-                                <label htmlFor="email" className="font-mainBold text-sm">Email Anda</label>
+                                <label htmlFor="email" className="font-mainBold text-sm">Email Anda <span className="text-red-600 text-sm">*</span></label>
                                 <input 
                                     type="email"
                                     name="email"
                                     id="email"
-                                    className="border-b py-2 focus:outline-none focus:border-b-primary font-main text-base"
+                                    className={`border-b py-2 focus:outline-none focus:border-b-primary font-main text-base`}
                                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                 />
                             </div>
                             <div className="w-full flex flex-col gap-1 my-3">
-                                <label htmlFor="password" className="font-mainBold text-sm">Password Email</label>
+                                <label htmlFor="password" className="font-mainBold text-sm">Password Email <span className="text-red-600 text-sm">*</span></label>
                                 <input 
                                     type="password"
                                     name="password"
                                     id="password"
-                                    className="border-b py-2 focus:outline-none focus:border-b-primary font-main text-base"
+                                    className={`border-b py-2 focus:outline-none focus:border-b-primary font-main text-base`}
                                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                                 />
                             </div>
