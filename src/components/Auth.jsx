@@ -1,12 +1,12 @@
 import Alert from "./ui/Alert";
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 export default function Auth({ variant }) {
 
     return (
         <>
-        <Alert message="Selamat! pendaftaran akun anda berhasil, silahkan login dengan akun anda." />
         <div className="w-full absolute-center p-16">
             <div className="container w-full mx-auto h-[600px] shadow-lg border rounded-xl flex items-center lg:max-w-[1024px]">
                 { variant === "register" ? <Register /> : <Login /> }
@@ -30,6 +30,16 @@ function Register() {
     const handleSubmitRegister = async (e) => {
         e.preventDefault();
         
+        if (formData.username === "" || formData.email === "" || formData.password === "") {
+            toast.error("Semua data wajib diisi.", {
+                duration: 6000,
+                richColors: true
+            });
+            console.log(e);
+            console.log(e.target);
+            return;
+        }
+
         try {
             const response = await fetch("http://localhost:8800/api/daftar", {
                 method: "POST",
