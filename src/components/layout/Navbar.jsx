@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faBars } from "@fortawesome/free-solid-svg-icons";
+import { getTokenFromLocalStorage } from "../../services/tokenServices.js";
 
 export default function Navbar() {
 
-    const [isAuthorized, setisAuthorized] = useState(false);
+    const [ isAuthorized, setIsAuthorized ] = useState(getTokenFromLocalStorage());
 
     return(
         <header className="w-full shadow-xl">
