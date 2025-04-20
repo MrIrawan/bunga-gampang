@@ -1,6 +1,6 @@
-import Alert from "./ui/Alert";
-import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
+import { useState } from "react"
+import { setTokenToLocalStorage } from "../services/tokenServices.js"
 import { toast } from "sonner";
 
 export default function Auth({ variant }) {
@@ -27,16 +27,16 @@ function Register() {
         password: ""
     });
 
+    const navigate = useNavigate();
+
     const handleSubmitRegister = async (e) => {
         e.preventDefault();
         
         if (formData.username === "" || formData.email === "" || formData.password === "") {
-            toast.error("Semua data wajib diisi.", {
+            toast.error("nama, email, dan password harus diisi", {
                 duration: 6000,
                 richColors: true
             });
-            console.log(e);
-            console.log(e.target);
             return;
         }
 
@@ -55,8 +55,24 @@ function Register() {
 
             const responseData = await response.json();
 
+            if (responseData.status === "success") {
+                toast.success(`${responseData.message} silahkan login dengan akun anda.`, {
+                    duration: 1000,
+                    richColors: true
+                });
+
+                e.target.reset();
+                setTimeout(() => {
+                    navigate("/masuk");
+                }, 1000);
+            }
+
+            
         } catch (error) {
-            console.log(error);
+            toast.error(`error message: ${error}`, {
+                duration: 6000,
+                richColors: true
+            })
         }
 
     }
@@ -121,8 +137,19 @@ function Login() {
         password: ""
     });
 
+    const navigate = useNavigate();
+
     const handleSubmitLogin = async (e) => {
         e.preventDefault();
+
+        if (formLogin.email === "" || formLogin.password === "") {
+            
+            toast.error("email dan password harus diisi", {
+                duration: 6000,
+                richColors: true
+            });            
+            return;
+        }
 
         try {
             const response = await fetch("http://localhost:8800/api/masuk", {
@@ -134,12 +161,34 @@ function Login() {
             });
 
             if (!response.ok) {
-                throw new Error("Network response was not ok");
+                toast.error("sebentar yaa, terjadi kesalahan pada jaringan nihh.", {
+                    duration: 6000,
+                    richColors: true
+                })
             }
 
             const responseData = await response.json();
+
+            if (responseData.status === "success") {
+                toast.success("bravo! kamu berhasil masuk.", {
+                    duration: 1000,
+                    richColors: true
+                });
+                
+                e.target.reset();
+                setTokenToLocalStorage(responseData.data.token);
+
+                setTimeout(() => {
+                    navigate("/");
+                }, 1000);
+            }
+
             
         } catch (error) {
+            toast.error("sebentar yaa, sepertinya terjadi kesalahan coba lai nanti yaa.", {
+                duration: 6000,
+                richColors: true
+            })
             console.error(`error message: ${error}`);
         }
     }

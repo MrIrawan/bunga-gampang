@@ -6,7 +6,10 @@ function setTokenToLocalStorage(token) {
 
 function getTokenFromLocalStorage() {
     if (typeof(Storage) !== "undefined") {
-        return localStorage.getItem("token");
+        if (localStorage.getItem("token") === true) {
+            return true;
+        }
+        return false;
     }
 }
 
