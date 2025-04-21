@@ -2,11 +2,14 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getTokenFromLocalStorage } from "../services/tokenServices.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit } from "@fortawesome/free-regular-svg-icons";
 
 export default function UserProfile() {
 
     const [data, setData] = useState([]);
     const navigate = useNavigate();
+    
 
     useEffect(() => {
         if (!getTokenFromLocalStorage()) {
@@ -28,7 +31,7 @@ export default function UserProfile() {
                 }
 
                 const responseData = await response.json();
-                console.log(responseData);
+                setData(responseData.data);
                 
             } catch (error) {
                 console.error(error);
@@ -37,10 +40,32 @@ export default function UserProfile() {
 
         getUserProfile();
     }, []);
+    
 
     return (
         <>
-            
+            <section className="w-full pt-16 pb-16">
+                <div className="container w-full mx-auto">
+                    <div className="w-full h-[500px] flex gap-6">
+                        <div className="w-40 h-40 rounded-full overflow-hidden lg:w-36 lg:h-36">
+                            <img src={data.profile_photo || "https://placehold.co/600x400"} alt="" className="w-full h-full object-cover"/>
+                        </div>
+                        <div className="w-1/2 flex flex-col gap-6">
+                            <div className="w-fit">
+                                <h2 className="text-2xl font-mainBold capitalize px-2">{ data.username }</h2>
+                                <p className="text-base font-main text-secondary px-2">{ data.email }</p>
+                            </div>
+                            <div className="w-full border rounded-md h-[100px] p-2 relative">
+                                <button className="font-main text-base border flex items-center gap-2 rounded-sm px-5 py-0.5 absolute top-2 right-2">
+                                    <FontAwesomeIcon icon={faEdit}/>
+                                    edit
+                                </button>
+                                <p className="text-base font-main">{ data.user_bio || "Belum ada bio" }</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </>
     )
 }
