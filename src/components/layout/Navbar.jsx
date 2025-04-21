@@ -36,9 +36,11 @@ export default function Navbar() {
                     <div className={`w-fit cursor-pointer ${isAuthorized ? "" : "flex items-center gap-3"}`}>
                         { isAuthorized ? 
                         
-                        <div className="w-12 h-12 rounded-full overflow-hidden">
-                            <img src="https://placehold.co/600x400" alt="profile-user" className="w-full h-full object-cover"/>
-                        </div>
+                        <a href="/profile">
+                            <div className="w-12 h-12 rounded-full overflow-hidden">
+                                <img src="https://placehold.co/600x400" alt="profile-user" className="w-full h-full object-cover"/>
+                            </div>
+                        </a>
                         :
                         <>
                             <a href="/masuk" className="font-main bg-primary text-text w-fit px-3 py-1.5 border border-secondary/50 transition-all duration-300 ease-in-out hover:bg-primary/95">Masuk</a>
