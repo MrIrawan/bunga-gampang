@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react"
-import { setTokenToLocalStorage } from "../services/tokenServices.js"
+import { setTokenToLocalStorage, removeTokenFromLocalStorage } from "../services/tokenServices.js"
 import { toast } from "sonner";
 
 export default function Auth({ variant }) {
@@ -161,10 +161,13 @@ function Login() {
             });
 
             if (!response.ok) {
-                toast.error("sebentar yaa, terjadi kesalahan pada jaringan nihh.", {
+                const responseData = await response.json();
+                toast.error(`${responseData.message}`, {
                     duration: 6000,
                     richColors: true
                 })
+                
+                throw new Error("Network response was not ok");
             }
 
             const responseData = await response.json();
@@ -177,7 +180,9 @@ function Login() {
                 
                 e.target.reset();
                 setTokenToLocalStorage(responseData.data.token);
+                removeTokenFromLocalStorage(responseData.data.expiredAt);
 
+                
                 setTimeout(() => {
                     navigate("/");
                 }, 1000);
@@ -185,10 +190,6 @@ function Login() {
 
             
         } catch (error) {
-            toast.error("sebentar yaa, sepertinya terjadi kesalahan coba lai nanti yaa.", {
-                duration: 6000,
-                richColors: true
-            })
             console.error(`error message: ${error}`);
         }
     }
