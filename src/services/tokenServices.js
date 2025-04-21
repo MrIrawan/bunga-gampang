@@ -4,7 +4,7 @@ function setTokenToLocalStorage(token) {
     }
 }
 
-function getTokenFromLocalStorage() {
+function isTokenAvailable() {
     if (typeof(Storage) !== "undefined") {
         if (localStorage.getItem("token")) {
             return true;
@@ -13,4 +13,24 @@ function getTokenFromLocalStorage() {
     }
 }
 
-export { setTokenToLocalStorage, getTokenFromLocalStorage }
+function getTokenFromLocalStorage() {
+    if (typeof(Storage) !== "undefined") {
+        if (localStorage.getItem("token")) {
+            return localStorage.getItem("token");
+        }
+        return false;
+    }
+}
+
+function removeTokenFromLocalStorage() {
+    if (typeof(Storage) !== "undefined") {
+        localStorage.removeItem("token");
+    }
+}
+
+export { 
+    setTokenToLocalStorage,
+    isTokenAvailable,
+    getTokenFromLocalStorage,
+    removeTokenFromLocalStorage
+}

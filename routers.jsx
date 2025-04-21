@@ -4,6 +4,7 @@ import Count from "./src/pages/Count";
 import Blog from "./src/pages/Blog";
 import NotFound from "./src/pages/404";
 import Auth from "./src/components/Auth"
+import UserProfile from "./src/pages/UserProfile";
 
 export const routers = createBrowserRouter([
     {
@@ -29,6 +30,14 @@ export const routers = createBrowserRouter([
     {
         path: '/daftar',
         element: <Auth variant="register"/>
+    },
+    {
+        path: '/profile/:id',
+        element: <UserProfile />
+    },
+    {
+        path: '/profile',
+        element: <Navigate to="/profile/xxx" replace />
     },
     {
         path: '*',
