@@ -22,9 +22,15 @@ function getTokenFromLocalStorage() {
     }
 }
 
-function removeTokenFromLocalStorage() {
+function removeTokenFromLocalStorage(expDate) {
+
+    const expiredTokenDate = new Date(expDate);
+    const currentDate = new Date();
+
     if (typeof(Storage) !== "undefined") {
-        localStorage.removeItem("token");
+        if (expiredTokenDate < currentDate) {
+            localStorage.removeItem("token");
+        }
     }
 }
 
