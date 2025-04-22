@@ -5,6 +5,7 @@ import Blog from "./src/pages/Blog";
 import NotFound from "./src/pages/404";
 import Auth from "./src/components/Auth"
 import UserProfile from "./src/pages/UserProfile";
+import UpdateProfile from "./src/pages/UpdateProfile";
 
 export const routers = createBrowserRouter([
     {
@@ -38,6 +39,10 @@ export const routers = createBrowserRouter([
     {
         path: '/profile',
         element: <Navigate to="/profile/xxx" replace />
+    },
+    {
+        path: '/update/:id',
+        element: <UpdateProfile />
     },
     {
         path: '*',

@@ -61,10 +61,12 @@ export default function UserProfile() {
                             </div>
                         </div>
                         <div className="hidden w-fit absolute top-2 right-2 md:flex md:flex-col md:gap-2 lg:flex-row lg:items-center lg:gap-4">
-                        <button className="font-main text-base border border-primary bg-primary text-text flex items-center gap-2 rounded-sm px-5 py-0.5" id={data.id}>
-                            <FontAwesomeIcon icon={faEdit}/>
-                            edit profile
-                        </button>
+                            <a href={`/update/${data.id}`}>
+                                <button className="font-main text-base border border-primary bg-primary text-text flex items-center gap-2 rounded-sm px-5 py-0.5" id={data.id}>
+                                    <FontAwesomeIcon icon={faEdit}/>
+                                    edit profile
+                                </button>
+                            </a>
                         <button className="font-main text-base border border-red-600 bg-red-600 text-text flex items-center gap-2 rounded-sm px-5 py-0.5" id={data.id}>
                             <FontAwesomeIcon icon={faTrash}/>
                             delete profile
