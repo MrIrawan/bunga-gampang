@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { getTokenFromLocalStorage } from "../services/tokenServices.js";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-regular-svg-icons";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function UserProfile() {
 
@@ -46,7 +47,7 @@ export default function UserProfile() {
         <>
             <section className="w-full pt-16 pb-16">
                 <div className="container w-full mx-auto">
-                    <div className="w-full h-[500px] flex gap-6">
+                    <div className="w-full flex gap-6 relative">
                         <div className="w-40 h-40 rounded-full overflow-hidden lg:w-36 lg:h-36">
                             <img src={data.profile_photo || "https://placehold.co/600x400"} alt="" className="w-full h-full object-cover"/>
                         </div>
@@ -55,13 +56,19 @@ export default function UserProfile() {
                                 <h2 className="text-2xl font-mainBold capitalize px-2">{ data.username }</h2>
                                 <p className="text-base font-main text-secondary px-2">{ data.email }</p>
                             </div>
-                            <div className="w-full border rounded-md h-[100px] p-2 relative">
-                                <button className="font-main text-base border flex items-center gap-2 rounded-sm px-5 py-0.5 absolute top-2 right-2">
-                                    <FontAwesomeIcon icon={faEdit}/>
-                                    edit
-                                </button>
+                            <div className="w-full border rounded-md h-[100px] p-2">
                                 <p className="text-base font-main">{ data.user_bio || "Belum ada bio" }</p>
                             </div>
+                        </div>
+                        <div className="hidden w-fit absolute top-2 right-2 md:flex md:flex-col md:gap-2 lg:flex-row lg:items-center lg:gap-4">
+                        <button className="font-main text-base border border-primary bg-primary text-text flex items-center gap-2 rounded-sm px-5 py-0.5" id={data.id}>
+                            <FontAwesomeIcon icon={faEdit}/>
+                            edit profile
+                        </button>
+                        <button className="font-main text-base border border-red-600 bg-red-600 text-text flex items-center gap-2 rounded-sm px-5 py-0.5" id={data.id}>
+                            <FontAwesomeIcon icon={faTrash}/>
+                            delete profile
+                        </button>
                         </div>
                     </div>
                 </div>
