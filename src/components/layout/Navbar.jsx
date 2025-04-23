@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faBars } from "@fortawesome/free-solid-svg-icons";
-import { isTokenAvailable } from "../../services/tokenServices.js";
+import { getTokenFromLocalStorage } from "../../services/tokenServices";
 
 export default function Navbar() {
 
-    const token = isTokenAvailable();
+    const token = getTokenFromLocalStorage() ? true : false;
     const [ isAuthorized, setIsAuthorized ] = useState(token);
     
     return(

@@ -49,14 +49,14 @@ export default function UserProfile() {
                 <div className="container w-full mx-auto">
                     <div className="w-full flex gap-6 relative">
                         <div className="w-40 h-40 rounded-full overflow-hidden lg:w-36 lg:h-36">
-                            <img src={data.profile_photo || "https://placehold.co/600x400"} alt="" className="w-full h-full object-cover"/>
+                            <img src={`http://localhost:8800/uploads/${data.profile_photo || "default.jpeg"}`} alt="" className="w-full h-full object-cover"/>
                         </div>
                         <div className="w-1/2 flex flex-col gap-6">
                             <div className="w-fit">
                                 <h2 className="text-2xl font-mainBold capitalize px-2">{ data.username }</h2>
                                 <p className="text-base font-main text-secondary px-2">{ data.email }</p>
                             </div>
-                            <div className="w-full border rounded-md h-[100px] p-2">
+                            <div className="w-full h-[100px] p-2">
                                 <p className="text-base font-main">{ data.user_bio || "Belum ada bio" }</p>
                             </div>
                         </div>

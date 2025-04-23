@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react"
-import { setTokenToLocalStorage, removeTokenFromLocalStorage } from "../services/tokenServices.js"
+import { setTokenToLocalStorage, setExpiredToken } from "../services/tokenServices.js"
 import { toast } from "sonner";
 
 export default function Auth({ variant }) {
@@ -180,7 +180,7 @@ function Login() {
                 
                 e.target.reset();
                 setTokenToLocalStorage(responseData.data.token);
-                removeTokenFromLocalStorage(responseData.data.expiredAt);
+                setExpiredToken(responseData.data.expiredAt);
 
                 
                 setTimeout(() => {

@@ -4,6 +4,18 @@ function setTokenToLocalStorage(token) {
     }
 }
 
+function setExpiredToken(expired) {
+    if (typeof(Storage) !== "undefined") {
+        localStorage.setItem("expired", expired);
+    }
+}
+
+function getExpiredToken() {
+    if (typeof(Storage) !== "undefined") {
+        return localStorage.getItem("expired");
+    }
+}
+
 function isTokenAvailable() {
     if (typeof(Storage) !== "undefined") {
         if (localStorage.getItem("token")) {
@@ -22,21 +34,29 @@ function getTokenFromLocalStorage() {
     }
 }
 
-function removeTokenFromLocalStorage(expDate) {
+function watchToken() {
+    const userToken = getTokenFromLocalStorage();
+    const expiredTme = getExpiredToken();
 
-    const expiredTokenDate = new Date(expDate);
-    const currentDate = new Date();
+    if (!userToken || !expiredTme) return;
 
-    if (typeof(Storage) !== "undefined") {
-        if (expiredTokenDate < currentDate) {
+    const intervalCheck = setInterval(() => {
+        const now = new Date();
+        const expiredDate = new Date(expiredTme);
+
+        if (now >= expiredDate) {
             localStorage.removeItem("token");
+            localStorage.removeItem("expired");
+            clearInterval(intervalCheck);
+            window.location.reload();
         }
-    }
+    }, 60 * 1000);
 }
 
 export { 
     setTokenToLocalStorage,
-    isTokenAvailable,
     getTokenFromLocalStorage,
-    removeTokenFromLocalStorage
+    setExpiredToken,
+    getExpiredToken,
+    watchToken
 }
