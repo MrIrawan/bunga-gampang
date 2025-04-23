@@ -1,22 +1,61 @@
 import { useState } from 'react';
+import { getTokenFromLocalStorage } from '../services/tokenServices.js';
 
 export default function UpdateProfile() {
     const [previewImage, setPreviewImage] = useState(null);
+    const [formUpdate, setFormUpdate] = useState({
+        username: '',
+        user_bio: '',
+        profile_photo: null,
+    });
 
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         if (file) {
             const imageUrl = URL.createObjectURL(file);
             setPreviewImage(imageUrl);
+            setFormUpdate({ ...formUpdate, profile_photo: file });
         }
+    };
+
+    const handleUpdateProfile = async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+
+        formData.append('username', formUpdate.username);
+        formData.append('user_bio', formUpdate.user_bio);
+        if (formUpdate.profile_photo) {
+            formData.append('profile_photo', formUpdate.profile_photo);
+        }
+
+        try {
+            const response = await fetch('http://localhost:8800/api/update/profile', {
+                method: 'PUT',
+                headers: {
+                    "Authorization": `Bearer ${getTokenFromLocalStorage()}`
+                },
+                
+                body: formData
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const responseData = await response.json();
+            console.log(responseData);
+            
+        } catch (error) {
+            console.error(error);
+        }
+        
     };
 
     return (
         <section className="w-full pt-16 pb-16">
             <div className="container w-full mx-auto">
-                <form className="w-full flex gap-6" encType="multipart/form-data">
-                    
-                    {/* 👇 File Input & Preview Foto */}
+                <form className="w-full flex gap-6" onSubmit={(e) => handleUpdateProfile(e)} encType="multipart/form-data">
                     <div className="relative w-40 h-40 rounded-full overflow-hidden border border-secondary/30 lg:w-36 lg:h-36">
                         <input 
                             type="file" 
@@ -37,8 +76,6 @@ export default function UpdateProfile() {
                             </div>
                         )}
                     </div>
-
-                    {/* 👇 Data Text Form */}
                     <div className="w-1/2 flex flex-col gap-6">
                         <div className="w-full">
                             <label htmlFor="username" className="text-sm font-main font-semibold text-secondary">Profile Name</label>
@@ -48,6 +85,7 @@ export default function UpdateProfile() {
                                 id="username" 
                                 className="w-full block mt-1.5 border border-secondary/30 py-2 px-2 font-main rounded-md focus:outline-none focus:border-primary"
                                 placeholder="Jane Doe | Copywriter"
+                                onChange={(e) => setFormUpdate({ ...formUpdate, username: e.target.value })}
                             />
                         </div>
                         <div className="w-full mb-8">
@@ -57,6 +95,7 @@ export default function UpdateProfile() {
                                 id="user_bio" 
                                 className="w-full block mt-1.5 border rounded-md min-h-[100px] p-2 resize-y max-h-[200px] font-main focus:outline-none focus:border-primary"
                                 placeholder="Ceritakan tentang kamu di sini..."
+                                onChange={(e) => setFormUpdate({ ...formUpdate, user_bio: e.target.value })}
                             />
                         </div>
                         <div className="w-full">
