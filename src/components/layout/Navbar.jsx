@@ -1,14 +1,11 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faBars } from "@fortawesome/free-solid-svg-icons";
-import { getTokenFromLocalStorage } from "../../services/tokenServices";
-import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 export default function Navbar() {
 
-    const token = getTokenFromLocalStorage() ? true : false;
-    const [ isAuthorized, setIsAuthorized ] = useState(token);
+    const { state } = useContext(AuthContext);
     
     return(
         <header className="w-full shadow-xl">
@@ -35,8 +32,8 @@ export default function Navbar() {
                     </div>
                 </div>
                 <div className="p-5 w-fit flex items-center justify-end lg:w-1/2">
-                    <div className={`w-fit cursor-pointer ${isAuthorized ? "" : "flex items-center gap-3"}`}>
-                        { isAuthorized ? 
+                    <div className={`w-fit cursor-pointer ${state.isAuthorized ? "" : "flex items-center gap-3"}`}>
+                        { state.isAuthorized ? 
                         
                         <a href="/profile">
                             <div className="w-12 h-12 rounded-full overflow-hidden">

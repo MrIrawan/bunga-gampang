@@ -6,6 +6,7 @@ export const AuthContext = createContext();
 const initialState = {
     user: null,
     token: getTokenFromLocalStorage() || null,
+    isAuthorized: getTokenFromLocalStorage() ? true : false
 }
 
 function authReducer(state, action) {
