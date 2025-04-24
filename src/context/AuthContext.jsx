@@ -42,7 +42,7 @@ function AuthContextProvider({ children }) {
             .then(res => res.json())
             .then(data => {
                 if (data.status === "success") {
-                    dispatch({ type: 'LOGIN', payload: { user: data.data.user, token: state.token } });
+                    dispatch({ type: 'LOGIN', payload: { user: data.data, token: state.token } });
                 }
             })
         }

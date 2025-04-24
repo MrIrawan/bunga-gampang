@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react"
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthContext.jsx";
 import { setTokenToLocalStorage, setExpiredToken } from "../services/tokenServices.js"
 import { toast } from "sonner";
 
@@ -136,6 +138,7 @@ function Login() {
         email: "",
         password: ""
     });
+    const { dispatch } = useContext(AuthContext);
 
     const navigate = useNavigate();
 
@@ -171,6 +174,8 @@ function Login() {
             }
 
             const responseData = await response.json();
+            console.log(responseData);
+            
 
             if (responseData.status === "success") {
                 toast.success("bravo! kamu berhasil masuk.", {
@@ -181,7 +186,7 @@ function Login() {
                 e.target.reset();
                 setTokenToLocalStorage(responseData.data.token);
                 setExpiredToken(responseData.data.expiredAt);
-
+                dispatch({ type: "LOGIN", payload: { user: responseData.data.user, token: responseData.data.token } })
                 
                 setTimeout(() => {
                     navigate("/");

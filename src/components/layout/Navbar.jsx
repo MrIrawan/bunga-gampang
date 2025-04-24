@@ -6,6 +6,8 @@ import { AuthContext } from "../../context/AuthContext";
 export default function Navbar() {
 
     const { state } = useContext(AuthContext);
+    console.log(state);
+    
     
     return(
         <header className="w-full shadow-xl">
