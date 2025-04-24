@@ -2,6 +2,8 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faBars } from "@fortawesome/free-solid-svg-icons";
 import { getTokenFromLocalStorage } from "../../services/tokenServices";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function Navbar() {
 
