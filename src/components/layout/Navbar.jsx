@@ -1,3 +1,4 @@
+import Avatar from "../ui/Avatar";
 import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faBars } from "@fortawesome/free-solid-svg-icons";
@@ -6,7 +7,6 @@ import { AuthContext } from "../../context/AuthContext";
 export default function Navbar() {
 
     const { state } = useContext(AuthContext);
-    console.log(state);
     
     
     return(
@@ -38,9 +38,7 @@ export default function Navbar() {
                         { state.isAuthorized ? 
                         
                         <a href="/profile">
-                            <div className="w-12 h-12 rounded-full overflow-hidden">
-                                <img src="https://placehold.co/600x400" alt="profile-user" className="w-full h-full object-cover"/>
-                            </div>
+                            <Avatar avatarSize="default" src={`http://localhost:8800/uploads/${state.user?.profile_photo ?? "default.jpeg"}`}/>
                         </a>
                         :
                         <>

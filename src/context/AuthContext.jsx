@@ -28,23 +28,32 @@ function authReducer(state, action) {
     }
 }
 
-function AuthContextProvider({ children }) {
+export function AuthContextProvider({ children }) {
     const [ state, dispatch ] = useReducer(authReducer, initialState);
 
     useEffect(() => {
         if (state.token && !state.user) {
-            fetch("http://localhost:8800/api/profile", {
-                method: "GET",
-                headers: {
-                    "Authorization": `Bearer ${state.token}`
+            const fetchUserProfile = async () => {
+                try {
+                    const response = await fetch("http://localhost:8800/api/profile", {
+                        method: "GET",
+                        headers: {
+                            "Authorization": `Bearer ${state.token}`
+                        }
+                    });
+
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+
+                    const responseData = await response.json();
+                    dispatch({ type: "LOGIN", payload: { user: responseData.data, token: state.token } });
+                } catch (error) {
+                    console.error(error);
                 }
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.status === "success") {
-                    dispatch({ type: 'LOGIN', payload: { user: data.data, token: state.token } });
-                }
-            })
+            }
+
+            fetchUserProfile();
         }
     }, [state.token]);
 
@@ -54,5 +63,3 @@ function AuthContextProvider({ children }) {
         </AuthContext.Provider>
     )
 }
-
-export { AuthContextProvider };
