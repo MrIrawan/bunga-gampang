@@ -16,7 +16,7 @@ export default function Avatar({
     }
 
     return (
-        <div className={`${avatarSizeHandler().width} ${avatarSizeHandler().height} rounded-full overflow-hidden`}>
+        <div className={`${avatarSizeHandler().width} ${avatarSizeHandler().height} rounded-full ring ring-primary overflow-hidden`}>
             <img src={src} alt={alt} className="w-full h-full object-cover"/>
         </div>
     )
