@@ -6,7 +6,7 @@ export default function Avatar({
 
     const avatarSizes = [
         {size: "default", width: "w-12", height: "h-12"},
-        {size: "sm", width: "w-8", height: "h-8"},
+        {size: "sm", width: "w-10", height: "h-10"},
         {size: "xl", width: "w-40", height: "h-40"},
     ];
 
