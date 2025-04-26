@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faGear, faLock } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faGear, faLock, faBuilding, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { faInstagram, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { useState } from "react";
 import Avatar from "../components/ui/Avatar";
 
@@ -63,16 +64,35 @@ function AccountInfo() {
 
     return (
         <>
-            <h1 className="text-3xl font-mainBold text-primary mt-3 mb-10">Profil Kamu</h1>
-            <div className="w-full flex flex-wrap gap-6">
-                <Avatar avatarSize="xl" src={`http://localhost:8800/uploads/${state.user?.profile_photo ?? "default.jpeg"}`}/>
-                <div className="w-fit flex flex-col gap-2">
-                    <h2 className="text-3xl font-mainBold">{ state.user?.username ?? "user" }</h2>
-                    <p className="text-base font-main font-semibold text-secondary">{ state.user?.email ?? "email" }</p>
+            <div className="w-full h-full flex flex-col lg:flex-row gap-6">
+                <div className="w-full h-1/2 flex flex-col gap-8">
+                    <div className="w-full flex gap-8 items-center">
+                        <Avatar avatarSize="xl" src={`http://localhost:8800/uploads/${state.user?.profile_photo ?? "default.jpeg"}`}/>
+                        <div className="w-fit flex flex-col gap-2">
+                            <h1 className="text-3xl my-0 font-mainBold text-primary">{ state.user?.username ?? "user" }</h1>
+                            <p className="text-sm font-main text-secondary font-semibold">{ state.user?.email ?? "email" }</p>
+                        </div>
+                    </div>
+                    <div className="w-full flex flex-col gap-4">
+                        <span className="flex items-center gap-2">
+                            <FontAwesomeIcon icon={faBuilding} className="text-lg text-secondary" />
+                            <p className="text-sm font-main font-semibold text-black">PT. Bunga Gampang</p>
+                        </span>
+                        <span className="flex items-center gap-2">
+                            <FontAwesomeIcon icon={faLocationDot} className="text-lg text-secondary" />
+                            <p className="text-sm font-main font-semibold text-black">Jakarta, Indonesia</p>
+                        </span>
+                        <span className="flex items-center gap-2">
+                            <FontAwesomeIcon icon={faInstagram} className="text-lg text-secondary" />
+                            <p className="text-sm font-main font-semibold text-black">canttguardrell</p>
+                        </span>
+                        <span className="flex items-center gap-2">
+                            <FontAwesomeIcon icon={faLinkedinIn} className="text-lg text-secondary" />
+                            <p className="text-sm font-main font-semibold text-black">Farrel Irawan</p>
+                        </span>
+                    </div>
                 </div>
-                <div className="w-full h-fit border-l-2 border-primary px-2">
-                    <p className="text-base font-main font-semibold">{ state.user?.user_bio ?? "Belum Ada Bio" }</p>
-                </div>
+                <div className="w-full h-1/2"></div>
             </div>
         </>
     )
