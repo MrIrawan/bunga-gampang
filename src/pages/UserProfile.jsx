@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faGear, faLock, faBuilding, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { faInstagram, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Avatar from "../components/ui/Avatar";
 
 export default function UserProfile() {
@@ -19,7 +19,11 @@ export default function UserProfile() {
         {id: 3, title: "Pengaturan Akun", icon: faGear},
     ]
 
-    if (state.isAuthorized === false) return navigate("/")
+    useEffect(() => {
+        if (state.isAuthorized === false) {
+            navigate("/masuk");
+        }
+    }, []);
 
     return (
         <>
