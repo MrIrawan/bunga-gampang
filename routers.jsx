@@ -6,6 +6,7 @@ import NotFound from "./src/pages/404";
 import Auth from "./src/components/Auth"
 import UserProfile from "./src/pages/UserProfile";
 import UpdateProfile from "./src/pages/UpdateProfile";
+import UploadBlog from "./src/pages/UploadBlog";
 
 export const routers = createBrowserRouter([
     {
@@ -43,6 +44,10 @@ export const routers = createBrowserRouter([
     {
         path: '/update/:id',
         element: <UpdateProfile />
+    },
+    {
+        path: '/upload-blog',
+        element: <UploadBlog />
     },
     {
         path: '*',
