@@ -14,7 +14,7 @@ watchToken();
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthContextProvider>
-      <Navbar />
+      {window.location.pathname !== "/blog" && <Navbar />}
         <RouterProvider router={routers} />
         <Toaster toastOptions={{
           style: {
