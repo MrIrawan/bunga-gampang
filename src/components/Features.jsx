@@ -1,25 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
-import FeaturesCard from "./ui/FeaturesCard";
 
-const firstFeatures = [
-    {
-        title: 'hasil dengan akurasi tinggi!',
-        description: 'karna sistem kami menggunakan rumus untuk menghitung hasil, maka hasil yang disajikan 100% akurat.',
-        features: ['hasil cepat dan akurat', 'histori hitung untuk memudahkan anda','100% akurasi']
-    },
-    {
-        title: 'tidak perlu membayar, gratis pakai sepuasnya.',
-        description: 'kami membuat bunga gampang gratis, kami membantu masyarakat dalam menghitung uang mereka.',
-        features: ['gratis pakai', 'tidak harus membership', 'pakai sepuasnya kapanpun dan dimanapun']
-    },
-    {
-        title: 'hitung cepat ga pake lama!',
-        description: 'sistem kami mengolah hasil inputan anda menggunakan rumus! tak perlu khawatir hasil akan meleset dari prediksi.',
-        features: ['rumus bunga tunggal', 'rumus bunga majemuk','rumus bunga bulanan']
-    },
-]
 
 export default function Features() {
     return (
