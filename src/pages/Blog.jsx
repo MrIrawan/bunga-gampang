@@ -9,8 +9,8 @@ export default function Blog() {
         <>
         <BlogNavbar />
         <section className='w-full pt-3 pb-3'>
-            <div className="container w-full mx-auto">
-                <div className='w-full flex flex-col gap-6'>
+            <div className="container w-full mx-auto lg:flex">
+                <div className='w-full flex flex-col gap-6 lg:order-1'>
                     <CategoriesBar data={categories} />
                 </div>
                 <div className="w-full py-1">
