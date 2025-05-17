@@ -43,7 +43,7 @@ export default function Features() {
                             <p className="font-main leading-normal mt-3">
                                 <span className="font-semibold">edukasi setiap bunga</span>{" "}
                                 merujuk pada informasi singkat mengenai rumus bunga yang dipilih,
-                                sehingga user dapat menghitung bunga sekaligus memahami tentang bunga tersebut.
+                                sehingga kamu dapat menghitung bunga sekaligus memahami tentang bunga tersebut.
                             </p>
                         </div>
                     </div>
